@@ -1,3 +1,3 @@
 # thomas-duck.github.io
 
-Just a test
+Please Follow Me on luogu.com : [ThomasG](https://www.luogu.com.cn/user/315440)
