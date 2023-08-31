@@ -2,8 +2,9 @@
 <html>  
 <head>  
   <title>计算递增时间</title>  
-  <style>  
-    #result {  
+  <!--css样式 是人工添加 -->
+  <style>
+      .a {  
         font-size: 25px;
         font-family: American Typewriter;
         color: blue;
@@ -13,7 +14,17 @@
         text-align: center;
         font-weight: 700;
 		line-height: 1.4;
-    }  
+    }.s {  
+        font-size: 13px;
+        font-family: American Typewriter;
+        color: blue;
+        background-color: #f0f0f0;
+        padding: 50px;
+        margin: 20px;
+        text-align: center;
+        font-weight: 700;
+		line-height: 1.4;
+    }
   </style>
   <script>  
     function calculateTimes() {  
@@ -30,7 +41,7 @@
       var currentMinute = selectedMinute;
   
       // 计算剩余的9个时间  
-      for (var i = 0; i < 10; i++) {  
+      for (var i = 0; i < 15; i++) {  
         // 递增分钟，超过60时递增小时并归零分钟  
         currentMinute += 90;  
         while (currentMinute >= 60) {  //ai本来是if，人工改为while
@@ -42,6 +53,7 @@
         if (currentHour >= 24) {  
           currentHour = 0;  
         }  
+        <!--补时间0也是人工添加-->
 		var outM = currentMinute.toString().padStart(2, '0');  
 		var outH = currentHour.toString().padStart(2, '0');  
 		times.push(outH + ":" + outM);
@@ -51,11 +63,12 @@
       document.getElementById("result").innerHTML = times.join("<br>");
     }  
   </script>  
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>  
 <body>  
-  <label for="selectedTime">选择时间:</label>  
-	<select id="selectedTime">  
+  <label for="selectedTime" class="a">选择 入睡/起床 时间:</label>  
+	<select id="selectedTime" class="s">  
+		<!--就这段选项问了10遍才问出来！-->
 		<option value="0:0">00:00</option>  
 		<option value="0:30">00:30</option>  
 		<option value="1:0">01:00</option>  
@@ -105,9 +118,9 @@
 		<option value="23:0">23:00</option>  
 		<option value="23:30">23:30</optgroup>
 		<!--  <option value="23:3">23:35 (approximate)</optgroup> -->
-		<!-- 奇怪的ai -->
+		<!-- 奇怪的ai不知道在写什么 -->
 	</select>
-  <button onclick="calculateTimes()">计算递增时间</button>  
-  <div id="result"></div>  
+  <button onclick="calculateTimes()" class='a'>计算递增时间</button>  
+  <div id="result" class="a"></div>  
 </body>  
 </html>
