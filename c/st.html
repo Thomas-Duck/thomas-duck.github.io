@@ -15,11 +15,11 @@
         font-weight: 700;
 		line-height: 1.4;
     }.s {  
-        font-size: 13px;
+        font-size: 15px;
         font-family: American Typewriter;
         color: blue;
         background-color: #f0f0f0;
-        padding: 50px;
+        padding: 10px;
         margin: 20px;
         text-align: center;
         font-weight: 700;
@@ -62,11 +62,10 @@
       // 输出结果
       document.getElementById("result").innerHTML = times.join("<br>");
     }  
-  </script>  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </script>
 </head>  
 <body>  
-  <label for="selectedTime" class="a">选择 入睡/起床 时间:</label>  
+  <label for="selectedTime" class="s">选择 入睡/起床 时间:</label>  
 	<select id="selectedTime" class="s">  
 		<!--就这段选项问了10遍才问出来！-->
 		<option value="0:0">00:00</option>  
@@ -120,7 +119,7 @@
 		<!--  <option value="23:3">23:35 (approximate)</optgroup> -->
 		<!-- 奇怪的ai不知道在写什么 -->
 	</select>
-  <button onclick="calculateTimes()" class='a'>计算递增时间</button>  
+  <button onclick="calculateTimes()" class='s'>计算递增时间</button>  
   <div id="result" class="a"></div>  
 </body>  
 </html>
