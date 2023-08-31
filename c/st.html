@@ -1,0 +1,113 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+  <title>计算递增时间</title>  
+  <style>  
+    #result {  
+        font-size: 25px;
+        font-family: American Typewriter;
+        color: blue;
+        background-color: #f0f0f0;
+        padding: 50px;
+        margin: 20px;
+        text-align: center;
+        font-weight: 700;
+		line-height: 1.4;
+    }  
+  </style>
+  <script>  
+    function calculateTimes() {  
+      // 获取用户选择的时间  
+      var select = document.getElementById("selectedTime");  
+      var selectedHour = parseInt(select.options[select.selectedIndex].text.split(':')[0]);  
+      var selectedMinute = parseInt(select.options[select.selectedIndex].text.split(':')[1]);  
+  
+      // 创建一个数组来存储计算后的时间  
+      var times = [];  
+  
+      // 计算第一个时间  
+      var currentHour = selectedHour;  
+      var currentMinute = selectedMinute;
+  
+      // 计算剩余的9个时间  
+      for (var i = 0; i < 10; i++) {  
+        // 递增分钟，超过60时递增小时并归零分钟  
+        currentMinute += 90;  
+        while (currentMinute >= 60) {  //ai本来是if，人工改为while
+          currentHour += 1;  
+          currentMinute -= 60;
+        }
+		
+        // 如果超过一天，将小时重置为0  
+        if (currentHour >= 24) {  
+          currentHour = 0;  
+        }  
+		var outM = currentMinute.toString().padStart(2, '0');  
+		var outH = currentHour.toString().padStart(2, '0');  
+		times.push(outH + ":" + outM);
+      }  
+  
+      // 输出结果
+      document.getElementById("result").innerHTML = times.join("<br>");
+    }  
+  </script>  
+
+</head>  
+<body>  
+  <label for="selectedTime">选择时间:</label>  
+	<select id="selectedTime">  
+		<option value="0:0">00:00</option>  
+		<option value="0:30">00:30</option>  
+		<option value="1:0">01:00</option>  
+		<option value="1:30">01:30</option>  
+		<option value="2:0">02:00</option>  
+		<option value="2:30">02:30</option>  
+		<option value="3:0">03:00</option>  
+		<option value="3:30">03:30</option>  
+		<option value="4:0">04:00</option>  
+		<option value="4:30">04:30</option>  
+		<option value="5:0">05:00</option>  
+		<option value="5:30">05:30</option>  
+		<option value="6:0">06:00</option>  
+		<option value="6:30">06:30</option>  
+		<option value="7:0">07:00</option>  
+		<option value="7:30">07:30</option>  
+		<option value="8:0">08:00</option>  
+		<option value="8:30">08:30</option>  
+		<option value="9:0">09:00</option>  
+		<option value="9:30">09:30</option>  
+		<option value="10:0">10:00</option>  
+		<option value="10:30">10:30</option>  
+		<option value="11:0">11:00</option>  
+		<option value="11:30">11:30</option>  
+		<option value="12:0">12:00</option>  
+		<option value="12:30">12:30</option>  
+		<option value="13:0">13:00</option>  
+		<option value="13:30">13:30</option>  
+		<option value="14:0">14:00</option>  
+		<option value="14:30">14:30</option>  
+		<option value="15:0">15:00</option>  
+		<option value="15:30">15:30</option>  
+		<option value="16:0">16:00</option>  
+		<option value="16:30">16:30</option>  
+		<option value="17:0">17:00</option>  
+		<option value="17:30">17:30</option>  
+		<option value="18:0">18:00</option>  
+		<option value="18:30">18:30</option>  
+		<option value="19:0">19:00</option>  
+		<option value="19:30">19:30</option>  
+		<option value="20:0">20:00</option>  
+		<option value="20:30">20:30</option>  
+		<option value="21:0">21:00</option>  
+		<option value="21:30">21:30</option>  
+		<option value="22:0">22:00</option>  
+		<option value="22:30">22:30</option>  
+		<option value="23:0">23:00</option>  
+		<option value="23:30">23:30</optgroup>
+		<!--  <option value="23:3">23:35 (approximate)</optgroup> -->
+		<!-- 奇怪的ai -->
+	</select>
+  <button onclick="calculateTimes()">计算递增时间</button>  
+  <div id="result"></div>  
+</body>  
+</html>
